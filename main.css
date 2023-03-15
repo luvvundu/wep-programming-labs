@@ -1,0 +1,21 @@
+body {
+    background-color:bisque;
+    color:brown;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0px;
+}
+
+header {
+    background-color: rgb(164, 174, 223); 
+    color: rgb(75, 37, 117); 
+    padding: 10px; 
+    font-size: 13pt;
+}
+
+footer {
+    background-color: rgb(39, 39, 139); 
+    color:beige; margin: 0px; 
+    padding: 10px; font-size: 13pt; 
+    font-style: italic; 
+    text-align: right;
+}
