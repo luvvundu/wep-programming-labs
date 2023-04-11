@@ -13,9 +13,9 @@
             border: 1px solid;
             border-radius: 7px;
             width: 500px;
-            height: 250px;
+            height: 180px;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: auto;
             position: relative;
             background: linear-gradient(rgb(28, 25, 25),red);
             margin-left: 320px;
@@ -23,7 +23,7 @@
 
         .second {
             z-index: 1;
-            left: 380px;
+            left: 580px;
             top: 120px;
             position: fixed;
         }
@@ -49,6 +49,55 @@
             position: fixed;
             right: 0%;
         }
+
+        .div_image {
+            width: 500px;
+            height: 500px;
+            background-image: ;
+        }
+
+        .main_cloud_div {
+            border-radius: 100px/50px;
+            position: relative;
+                
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 1px 2px 20px 10px white;
+            background-color: rgb(194, 188, 145);
+            color: rgb(33, 54, 147);
+            font-weight: bold;
+            font-size: 29px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(90deg, rgb(55, 55, 32) 0%. black 100%);
+        }
+
+        .five {
+            width: 130px;
+            height: 70px;
+
+            top: -150px;
+            left: 150px;
+        }
+
+        .six {
+            width: 160px;
+            height: 80px;
+
+            top: -150px;
+            left: 90px;    
+        }
+
+        .seven {
+            width: 200px;
+            height: 100px;
+
+            top: -145px;
+            left: 100px;
+        }
+
+
 
     </style>
 </head>
@@ -117,6 +166,17 @@
         областях могут изменить относительную цену продукта, и внезапно технология, которая была совершенно гипотетической, 
         становится реальной и начинает работать.
         </div>
+
+        <p style="margin-top: 160px; margin-left: 220px">
+        <img src="https://thelawofattraction.ru/wp-content/uploads/f/4/f/f4f1f3b4eadbdfd79982d0001ed7d07b.jpeg" height="500">
+        <p style="color: aliceblue; left: 100px; top:100px; border: 100px; border-radius: 100px; position: fixed"></p>
+        
+        <section class="div_image">
+            <section class="main_cloud_div five"></section>
+            <section class="main_cloud_div six"></section>
+            <section class="main_cloud_div seven">Wow!</section>
+        </section>
+    
     </main>
 
     <footer>
