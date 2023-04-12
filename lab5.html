@@ -21,6 +21,36 @@
             let author = 'Автор страницы:\nИтегелова Виктория Олеговна';
             alert(author + ' передает вам пламенный привет! ');
         }
+
+        function showDiff() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b; 
+            alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        function showProza() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b; 
+            alert('Произведение ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        function showDel() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a / b; 
+            alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+        }
     </script>
     <style>
         .message {
@@ -47,10 +77,13 @@
     </header>
 
     <main>
-        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
-        <label>Второе число: <input type="number" value="789" id="numberB"></label><br>
-        <div class="message" onclick="showSum()">Сколько будет?</div>
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Первое число: <input type="number" value="5154" id="numberA"></label><br>
+        <label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Второе число: <input type="number" value="789" id="numberB"></label><br>
+        <p><div class="message" onclick="showSum()">Сколько будет?</div></p>
+        <p><div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div></p>
+        <p><div class="message" onclick="showDiff()">Найти разность чисел?</div></p>
+        <div class="message" onclick="showProza()">Найти произведение</div>
+        <p><div class="message" onclick="showDel()">Найти деление</div></p>
     </main>
 
     <footer onclick="showAuthor() ">
