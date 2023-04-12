@@ -51,6 +51,14 @@
             let result = a / b; 
             alert('Разность ' + a + ' и ' + b + ' равна ' + result);
         }
+
+        function changeOutput(buttonNum, backColor, textColor, borderStyle) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.borderStyle = borderStyle;
+        }
     </script>
     <style>
         .message {
@@ -68,6 +76,12 @@
             display: inline-block;
             cursor: pointer;
         }
+
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
     </style>
 </head>
 
@@ -80,10 +94,23 @@
         <label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Первое число: <input type="number" value="5154" id="numberA"></label><br>
         <label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Второе число: <input type="number" value="789" id="numberB"></label><br>
         <p><div class="message" onclick="showSum()">Сколько будет?</div></p>
+
         <p><div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div></p>
+
         <p><div class="message" onclick="showDiff()">Найти разность чисел?</div></p>
+
         <div class="message" onclick="showProza()">Найти произведение</div>
+
         <p><div class="message" onclick="showDel()">Найти деление</div></p>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'brown', 'white')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'yellow', 'red')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'white')">
+        </div>
+
+        <div id="output"></div>
     </main>
 
     <footer onclick="showAuthor() ">
