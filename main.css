@@ -1,21 +1,67 @@
 body {
-    background-color:bisque;
-    color:brown;
+    background-color:rgb(220, 206, 206);
+    color:rgb(255, 255, 255);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0px;
 }
 
 header {
-    background-color: rgb(164, 174, 223); 
-    color: rgb(75, 37, 117); 
+    background: linear-gradient(to right bottom,red,rgb(96, 49, 56),black); 
+    color: rgb(233, 217, 217); 
     padding: 10px; 
-    font-size: 13pt;
+    font-size: 13pt; 
+    opacity: 1;
+    transition: 3s;
+    transition: color 0.1s;
+    transition-duration: 100ms;
+    transition-delay: 300ms;
+    text-shadow: 2px 2px 3px rgb(189, 15, 15);
+}
+
+main {
+    margin: 10px 20px;
 }
 
 footer {
-    background-color: rgb(39, 39, 139); 
-    color:beige; margin: 0px; 
+    background: linear-gradient(to left bottom, black, rgb(181, 12, 12)); 
+    color:rgb(235, 227, 227); margin: 0px; 
     padding: 10px; font-size: 13pt; 
     font-style: italic; 
     text-align: right;
+    opacity: 1;
+    transition: 3s;
+    transition: color 0.1s;
+    transition-duration: 100ms;
+    transition-delay: 300ms;
+    text-shadow: 2px 2px 3px rgb(26, 2, 1);
+}
+
+a {
+    opacity: 1;
+    transition: 500ms 1s;
+}
+
+a:visited {
+    color:rgb(213, 9, 9);
+    background-color: rgb(210, 108, 108);
+    opacity: 1;
+    transition: 600ms 1s;
+    text-shadow: 2px 2px 3px rgb(29, 29, 28);
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    background-color: white;
+    font-weight: bold;
+    opacity: 1;
+    transition: 600ms 0.3s;
+    text-shadow: 2px 2px 3px rgb(204, 7, 7);
+}
+
+a:active {
+    color: rgb(222, 10, 46);
+    background-color: rgb(219, 213, 213);
+    opacity: 1;
+    transition: 600ms 1s;
 }
