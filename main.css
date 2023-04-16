@@ -1,13 +1,13 @@
 body {
     background-color:rgb(220, 206, 206);
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin:0px;
 }
 
 header {
     background: linear-gradient(to right bottom,red,rgb(96, 49, 56),black); 
-    color: rgb(233, 217, 217); 
+    color: rgb(255, 255, 255); 
     padding: 10px; 
     font-size: 13pt; 
     opacity: 1;
@@ -16,6 +16,15 @@ header {
     transition-duration: 100ms;
     transition-delay: 300ms;
     text-shadow: 2px 2px 3px rgb(189, 15, 15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header:hover {
+    background: rgb(159, 21, 21);
+    text-shadow: 2px 2px 3px;
+    opacity: 1;
+    color: rgb(0, 0, 0);
+    font-size: 18pt;
 }
 
 main {
@@ -32,8 +41,21 @@ footer {
     transition: 3s;
     transition: color 0.1s;
     transition-duration: 100ms;
-    transition-delay: 300ms;
-    text-shadow: 2px 2px 3px rgb(26, 2, 1);
+    transition-delay: 00ms;
+    text-shadow: 1px 1px 3px rgb(26, 2, 1);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer:hover {
+    background: rgb(159, 21, 21);
+    text-shadow: 2px 2px 3px;
+    opacity: 1;
+    color: rgb(0, 0, 0);
+    font-size: 18pt;
 }
 
 a {
@@ -42,7 +64,8 @@ a {
 }
 
 a:visited {
-    color:rgb(213, 9, 9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(21, 3, 3);
     background-color: rgb(210, 108, 108);
     opacity: 1;
     transition: 600ms 1s;
@@ -50,18 +73,20 @@ a:visited {
 }
 
 a:hover {
-    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 251, 251);
     text-decoration: underline;
-    background-color: white;
+    background-color: rgb(184, 0, 0);
     font-weight: bold;
     opacity: 1;
     transition: 600ms 0.3s;
-    text-shadow: 2px 2px 3px rgb(204, 7, 7);
+    text-shadow: 2px 2px 3px rgb(171, 76, 76);
 }
 
 a:active {
-    color: rgb(222, 10, 46);
-    background-color: rgb(219, 213, 213);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(239, 0, 0);
+    background-color: rgb(161, 94, 94);
     opacity: 1;
     transition: 600ms 1s;
 }
