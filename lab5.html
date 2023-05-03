@@ -71,9 +71,16 @@
             let r = parseInt(inputR.value);
             let s = parseInt(inputS.value);
 
-            let output = document.getElementById('korzina');
+            let output = document.getElementById('rez');
             let result2 = (o * 100) + (p * 80) + (r * 150) + (s * 300); 
             output.innerHTML = 'Общая цена: ' + result2 + ' рублей';
+        }
+
+        function changeNum(buttonNum) {
+            let num = document.getElementById('num'+ buttonNum);
+            num.innerHTML = "";
+            num.style.textColor = "transparent";
+            num.style.backgroundColor = "transparent";
         }
 
     </script>
@@ -143,45 +150,40 @@
 
         <p><div id="output"></div></p>
 
-        <div id="korzina"; style="text-align: center;">
-        <h2 style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Корзина товаров</h2>
+        <div id="korzina" style="text-align: center;">
+            <h2 style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Корзина товаров</h2>
 
-        <p><label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Яблоки (100р/шт): <p><input type="number" id="numberO"></label><br></p>
-        <p><label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Груши (80р/шт): <p><input type="number" id="numberP"></label><br></p>
-        <p><label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Апельсины (150р/шт): <p><input type="number" id="numberR"></label><br></p>
-        <p><label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Дыни (300р/шт): <p><input type="number" id="numberS"></label><br></p>
+            <p><label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Яблоки (100р/шт): <p><input type="number" id="numberO"></label><br></p>
+            <p><label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Груши (80р/шт): <p><input type="number" id="numberP"></label><br></p>
+            <p><label style="color: rgb(226, 43, 43); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Апельсины (150р/шт): <p><input type="number" id="numberR"></label><br></p>
+            <p><label style="color: brown; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">Дыни (300р/шт): <p><input type="number" id="numberS"></label><br></p>
 
-        <p><label style="color: rgb(0, 0, 0); background-color: azure; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-            <input type="button" value="Рассчитать" onclick="changeKorzina()">
-        </label></p>
-
+            <p><label style="color: rgb(0, 0, 0); background-color: azure; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                <input type="button" value="Рассчитать" onclick="changeKorzina()">
+                <div id="rez"></div>
+            </label></p>
         </div>
 
-        <p>
-            <div id="num"; style="text-align: center; padding: 1rem; cursor: pointer;">
-            <input type="button"  value="1" onclick="changeNum(1, 'red', 'white')" style="color: rgb(0, 0, 0); background-color: rgb(174, 179, 138); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;">
-            <input type="button" value="2" onclick="changeNum(2,'white', 'white')" style="color: rgb(0, 0, 0); background-color: rgb(16, 121, 20); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(161, 177, 35); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
-            type="button" value="3" onclick="changeNum(3, 'white', 'white')">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(30, 141, 80); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+         <div style="text-align: center; padding: 1rem; cursor: pointer; margin-bottom: 50px">
+            <input id="num1" type="button"  value="1" onclick="changeNum(1)" style="color: rgb(0, 0, 0); background-color: rgb(174, 179, 138); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;">
+            <input id="num2" type="button" value="2" onclick="changeNum(2)" style="color: rgb(0, 0, 0); background-color: rgb(16, 121, 20); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;">
+            <input id="num3" style="color: rgb(0, 0, 0); background-color: rgb(161, 177, 35); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            type="button" value="3" onclick="changeNum(3)">
+            <input id="num4" style="color: rgb(0, 0, 0); background-color: rgb(30, 141, 80); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="4" onclick="changeNum(4)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(40, 147, 161); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num5" style="color: rgb(0, 0, 0); background-color: rgb(40, 147, 161); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="5" onclick="changeNum(5)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(90, 55, 180); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num6" style="color: rgb(0, 0, 0); background-color: rgb(90, 55, 180); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="6" onclick="changeNum(6)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(147, 55, 171); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num7" style="color: rgb(0, 0, 0); background-color: rgb(147, 55, 171); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="7" onclick="changeNum(7)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(177, 46, 116); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num8" style="color: rgb(0, 0, 0); background-color: rgb(177, 46, 116); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="8" onclick="changeNum(8)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(161, 61, 61); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num9" style="color: rgb(0, 0, 0); background-color: rgb(161, 61, 61); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="9" onclick="changeNum(9)">
-            <input style="color: rgb(0, 0, 0); background-color: rgb(144, 19, 19); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
+            <input id="num10" style="color: rgb(0, 0, 0); background-color: rgb(144, 19, 19); border-radius: 100px; width: 50px; height: 50px; font-size: 30px; font-weight: bold;"
             type="button" value="10" onclick="changeNum(10)">
-            </div>
-         </p>
-
-         
-        <p><div id="num"></div></p>
+         </div>
 
     </main>
 
