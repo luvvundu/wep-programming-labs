@@ -23,6 +23,18 @@
             border-color: brown;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        .color {
+            background-color: yellow;
+            border-radius: 3px;
+            border: 2px solid;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            width: 200px;
+            height: 70px;
+            margin: 20px;
+            color: rgb(209, 195, 195);
+        }
     </style>
     <script>
         let number;
@@ -95,6 +107,47 @@
             ruless[1].style.display = 'none';
             ruless[0].style.display = 'block';
         }
+        function changeColor(div) {
+            if(div.style.backgroundColor == 'yellow') {
+                div.style.backgroundColor = 'red';
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'красный';
+            }
+            else if(div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'black';
+                div.style.color = 'pink';
+                document.getElementById('color-name').innerHTML = 'черный';
+            }
+            else if(div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'blue';
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'синий';
+            }
+            else if(div.style.backgroundColor == 'blue') {
+                div.style.backgroundColor = 'green';
+                div.style.color = 'orange';
+                document.getElementById('color-name').innerHTML = 'зелёный';
+            }
+            else if(div.style.backgroundColor == 'green') {
+                div.style.backgroundColor = 'brown';
+                div.style.color = 'yellow';
+                document.getElementById('color-name').innerHTML = 'коричневый';
+            }
+            else if(div.style.backgroundColor == 'brown') {
+                div.style.backgroundColor = 'white';
+                div.style.color = 'black';
+                document.getElementById('color-name').innerHTML = 'белый';
+            }
+            else if(div.style.backgroundColor == 'white') {
+                div.style.backgroundColor = 'pink';
+                div.style.color = 'black';
+                document.getElementById('color-name').innerHTML = 'розовый';
+            }
+            else {
+                div.style.backgroundColor = 'yellow';
+                document.getElementById('color-name').innerHTML = 'жёлтый';
+            }
+        }
     </script>
 </head>
 <body>
@@ -149,6 +202,11 @@
                 <li>Попрыгайте</li>
                 <li>Больше можете ничего не делать, вы уже выиграли!</li>
             </ol>
+        </div>
+
+        <div class="color" ondblclick="changeColor(this)">
+            Цвет: <span id="color-name">жёлтый</span><br>
+            Сделайте двойной щелчок, чтобы сменить.
         </div>
     </main>
 
