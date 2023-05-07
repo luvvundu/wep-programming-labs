@@ -16,6 +16,13 @@
             border: 2px solid;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        .rules {
+            background-color: aliceblue;
+            border-radius: 2px;
+            border: 2px solid;
+            border-color: brown;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
     </style>
     <script>
         let number;
@@ -46,23 +53,47 @@
             }
         }
         function again(params) {
+            let number;
             let count = 0;
+            count++;
+            number = Math.floor( Math.random() * 100 ) + 1;
+
             let screens = document.getElementsByClassName('game');
             screens[2].style.display = 'none';
             screens[1].style.display = 'block';
 
-            var resetParas = document.querySelectorAll('.resultParas p');
-            for (var i = 0 ; i < resetParas.length ; i++) {
-            resetParas[i].textContent = '';
+            let input = document.getElementById('user-number')
+            let userNumber = parseInt(input.value);
+            let message = document.getElementById('result');
+            if(userNumber > number) {
+                message.innerHTML = 'Вы преувеличили';
             }
-            resetButton.parentNode.removeChild(resetButton);
-
-            guessField.disabled = false;
-            guessSubmit.disabled = false;
-            guessField.value = '';
-            guessField.focus();
-
-            randomNumber = Math.floor(Math.random() * 100) + 1;
+                else if (userNumber < number) {
+                    message.innerHTML = 'Вы преуменьшили';
+            }
+            else {
+                let screens = document.getElementsByClassName('game');
+                screens[1].style.display = 'none';
+                screens[2].style.display = 'block';
+                document.getElementById('number').innerHTML = number;
+                document.getElementById('try-count').innerHTML = count;
+            }
+        }
+        function show_rules() {
+            let ruless = document.getElementsByClassName('rules');
+            ruless[0].style.display = 'none';
+            ruless[1].style.display = 'block';
+        }
+        function show_rules1() {
+            let ruless = document.getElementsByClassName('rules');
+            ruless[1].style.display = 'none';
+            ruless[2].style.display = 'block';
+            document.getElementById('information').innerHTML = information;
+        }
+        function hide() {
+            let ruless = document.getElementsByClassName('rules');
+            ruless[1].style.display = 'none';
+            ruless[0].style.display = 'block';
         }
     </script>
 </head>
@@ -99,6 +130,25 @@
             <div>
                 <button onclick="again()">Сыграть ещё раз</button>
             </div>
+        </div>
+
+        <div class="rules">
+            <button onclick="show_rules()">
+                Показать правила игры
+            </button>
+        </div>
+
+        <div class="rules" style="display: none;" id="information">
+            <div>
+                <button onclick="hide()">Скрыть правила игры</button>
+            </div>
+            <ol type="I">
+                <li>Улыбнитесь</li>
+                <li>Помашите</li>
+                <li>Покружитесь</li>
+                <li>Попрыгайте</li>
+                <li>Больше можете ничего не делать, вы уже выиграли!</li>
+            </ol>
         </div>
     </main>
 
