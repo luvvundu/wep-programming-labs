@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <style>
         .game {
+            background-color: rgb(213, 116, 99);
             width: 500px;
             border-radius: 80px/50px;
             margin: 50px auto;
@@ -17,11 +18,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .rules {
-            background-color: aliceblue;
-            border-radius: 2px;
+            width: 500px;
+            background-color: rgb(154, 45, 26);
             border: 2px solid;
-            border-color: brown;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 80px/50px;
+            padding: 10px;
+            margin: 50px auto;
+            text-align: center;
         }
 
         .color {
@@ -33,7 +37,28 @@
             width: 200px;
             height: 70px;
             margin: 20px;
-            color: rgb(209, 195, 195);
+            color: rgb(142, 77, 20);
+        }
+        .block {
+            height: 100px;
+            width: 150px;
+            position: relative;
+            transition: 3ms;
+            cursor: pointer;
+            background-color: rgb(184, 100, 100);
+            color: aliceblue;
+            text-align: center;
+        }
+        .block2 {
+            text-align: center;
+            height: 100px;
+            width: 100px;
+            position: relative;
+            transition: 3ms;
+            cursor: pointer;
+            background-color: rgb(21, 176, 114);
+            color: aliceblue;
+            margin: 20px;
         }
     </style>
     <script>
@@ -75,7 +100,8 @@
             screens[1].style.display = 'block';
 
             let input = document.getElementById('user-number')
-            let userNumber = parseInt(input.value);
+            document.getElementById('user-number').value = '';
+            let userNumber = parseInt(0);
             let message = document.getElementById('result');
             if(userNumber > number) {
                 message.innerHTML = 'Вы преувеличили';
@@ -147,6 +173,21 @@
                 div.style.backgroundColor = 'yellow';
                 document.getElementById('color-name').innerHTML = 'жёлтый';
             }
+        } 
+        function changePosition() {
+            if(block.style.left == 0) {
+                document.querySelector(".block").style.position = "absolute";
+                document.querySelector(".block").style.right = 0;
+            }
+            else if(block.style.right == 0) {
+                document.querySelector(".block").style.position = "absolute";
+                document.querySelector(".block").style.left = 0;
+            }
+        }
+        let blockWidth = 100; 
+        function changePosition2() {
+            blockWidth + 50 >= 1000 ? blockWidth = 100 : blockWidth += 50;
+            document.querySelector(".block2").style.width =  `${blockWidth}px`;
         }
     </script>
 </head>
@@ -182,6 +223,7 @@
             </div>
             <div>
                 <button onclick="again()">Сыграть ещё раз</button>
+                <div id="result"></div>
             </div>
         </div>
 
@@ -207,6 +249,34 @@
         <div class="color" ondblclick="changeColor(this)">
             Цвет: <span id="color-name">жёлтый</span><br>
             Сделайте двойной щелчок, чтобы сменить.
+        </div>
+
+        <div class="block" onclick="changePosition()">
+            Щёлкни меня! 
+        </div>
+
+        <div class="block2" onclick="changePosition2()">
+            Йоу
+        </div>
+
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Красный</option>
+                <option>Белый</option>
+                <option>Черный</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-color">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>
+            </select><br>
+
+            <button>Ok</button><br>
+
+            <img id="wear">
         </div>
     </main>
 
