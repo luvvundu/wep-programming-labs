@@ -12,7 +12,24 @@
     }
     #transparent_blocks {
         width: 150px;
-        opacity: 1;
+    }
+    .circle {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        border-radius: 50%;
+        background-color: gray;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin: 10px;
+    }
+    .circle:nth-child(even) {
+        background-color: green;
+    }
+    .circle:nth-child(odd) {
+        background-color: red;
     }
 </style>
 
@@ -61,6 +78,19 @@
             blocks.style.opacity = percent += 0.1;
         }
     }
+    function init() {
+        let count = Number(document.getElementById("count").value);
+        const circles = document.getElementById("circles");
+        circles.innerHTML = "";
+        if (!count && count === 0) return alert("Укажите число кругов");
+        for (let i = count; i > 0; i--) {
+            let circle = document.createElement("div");
+            circle.classList.add("circle");
+            circle.innerText = i;
+            circles.append(circle);
+        }
+    }
+    document.getElementById("init").onclick = init;
 </script>
 
 </head>
@@ -79,6 +109,10 @@
 
         <button onclick="addTransparentBlocks()">Создать полупрозрачные блоки</button>
         <div id="transparent_blocks"></div>
+
+        <input type="text" value="5" placeholder="Введите число кругов" id="count"/>
+        <button id="init" onclick="init()">Красное / Зелёное</button>
+        <div id="circles"></div>
     </main>
 
     <footer>
