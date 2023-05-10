@@ -21,11 +21,12 @@
             width: 500px;
             background-color: rgb(154, 45, 26);
             border: 2px solid;
+            border-color: black;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             border-radius: 80px/50px;
             padding: 10px;
             margin: 50px auto;
-            text-align: center;
+            color: white;
         }
 
         .color {
@@ -48,17 +49,25 @@
             background-color: rgb(184, 100, 100);
             color: aliceblue;
             text-align: center;
+            align-items: center;
         }
         .block2 {
             text-align: center;
             height: 100px;
             width: 100px;
+            left: 650px;
             position: relative;
             transition: 3ms;
             cursor: pointer;
             background-color: rgb(21, 176, 114);
             color: aliceblue;
             margin: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            height: 700px;
+            width: 650px;
         }
     </style>
     <script>
@@ -89,10 +98,9 @@
                 document.getElementById('try-count').innerHTML = count;
             }
         }
-        function again(params) {
+        function again() {
             let number;
             let count = 0;
-            count++;
             number = Math.floor( Math.random() * 100 ) + 1;
 
             let screens = document.getElementsByClassName('game');
@@ -103,19 +111,6 @@
             document.getElementById('user-number').value = '';
             let userNumber = parseInt(0);
             let message = document.getElementById('result');
-            if(userNumber > number) {
-                message.innerHTML = 'Вы преувеличили';
-            }
-                else if (userNumber < number) {
-                    message.innerHTML = 'Вы преуменьшили';
-            }
-            else {
-                let screens = document.getElementsByClassName('game');
-                screens[1].style.display = 'none';
-                screens[2].style.display = 'block';
-                document.getElementById('number').innerHTML = number;
-                document.getElementById('try-count').innerHTML = count;
-            }
         }
         function show_rules() {
             let ruless = document.getElementsByClassName('rules');
@@ -174,20 +169,64 @@
                 document.getElementById('color-name').innerHTML = 'жёлтый';
             }
         } 
-        function changePosition() {
-            if(block.style.left == 0) {
-                document.querySelector(".block").style.position = "absolute";
-                document.querySelector(".block").style.right = 0;
+            let state = 0;
+        function changePosition(div) {
+            if (div.style.left == '0%') {
+                div.style.left = '90%';
+                div.style.transition = '4s';
+                div.style.transform = "rotate(4turn)";
             }
-            else if(block.style.right == 0) {
-                document.querySelector(".block").style.position = "absolute";
-                document.querySelector(".block").style.left = 0;
+            else {
+                div.style.left = '0%';
+                div.style.transition = '4s';
+                div.style.transform = "rotate(0turn)";
             }
         }
-        let blockWidth = 100; 
         function changePosition2() {
             blockWidth + 50 >= 1000 ? blockWidth = 100 : blockWidth += 50;
             document.querySelector(".block2").style.width =  `${blockWidth}px`;
+        }
+        let blockWidth = 100;
+
+        function filter() {
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+
+            if(color == 'Красный' && type == 'Футболка') {
+                wear.src = 'redf.jpg';
+            }
+            else if(color == 'Белый' && type == 'Футболка') {
+                wear.src = 'whitef.jpg';
+            }
+
+            else if(color == 'Чёрный' && type == 'Футболка') {
+                wear.src = 'blackf.jpg';
+            }
+
+            else if(color == 'Красный' && type == 'Поло') {
+                wear.src = 'redpolo.jpg';
+            }
+
+            else if(color == 'Белый' && type == 'Поло') {
+                wear.src = 'whitepolo.jpg';
+            }
+
+            else if(color == 'Чёрный' && type == 'Поло') {
+                wear.src = 'blackpolo.jpg';
+            }
+
+            else if(color == 'Красный' && type == 'Майка') {
+                wear.src = 'redmaika.jpg';
+            }
+
+            else if(color == 'Белый' && type == 'Майка') {
+                wear.src = 'whitemaika.jpg';
+            }
+
+            else if(color == 'Чёрный' && type == 'Майка') {
+                wear.src = 'blackmaika.jpg';
+            }
         }
     </script>
 </head>
@@ -227,15 +266,15 @@
             </div>
         </div>
 
-        <div class="rules">
-            <button onclick="show_rules()">
+        <div class="rules" style="text-align: center;" >
+            <button style="border-radius: 80px/50px;" onclick="show_rules()">
                 Показать правила игры
             </button>
         </div>
 
-        <div class="rules" style="display: none;" id="information">
+        <div class="rules" style="display: none;" id="information" >
             <div>
-                <button onclick="hide()">Скрыть правила игры</button>
+                <button style="border-radius: 80px/50px;" onclick="hide()">Скрыть правила игры</button>
             </div>
             <ol type="I">
                 <li>Улыбнитесь</li>
@@ -246,12 +285,12 @@
             </ol>
         </div>
 
-        <div class="color" ondblclick="changeColor(this)">
+        <div class="color" style="left: 650px;" ondblclick="changeColor(this)">
             Цвет: <span id="color-name">жёлтый</span><br>
             Сделайте двойной щелчок, чтобы сменить.
         </div>
 
-        <div class="block" onclick="changePosition()">
+        <div class="block" onclick="changePosition(this)">
             Щёлкни меня! 
         </div>
 
@@ -268,13 +307,13 @@
             </select><br>
 
             Тип одежды:
-            <select id="wear-color">
+            <select id="wear-type">
                 <option>Футболка</option>
                 <option>Поло</option>
                 <option>Майка</option>
             </select><br>
 
-            <button>Ok</button><br>
+            <button onclick="filter()">Ok</button><br>
 
             <img id="wear">
         </div>
