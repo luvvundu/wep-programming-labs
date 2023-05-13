@@ -31,6 +31,10 @@
     .circle:nth-child(odd) {
         background-color: red;
     }
+    #table {
+        background-color: rgb(203, 176, 187);
+        margin: 20px auto;
+    }
 </style>
 
 <script>
@@ -68,19 +72,20 @@
         let transparent_blocks = document.getElementById('transparent_blocks');
         for(let i = 0; i < 10; i++) {
             let blocks = document.createElement('div');
-            blocks.innerHTML = 'Я №' + (i+1);
+            blocks.innerHTML = 'Я номер ' + (i+1);
             
             transparent_blocks.appendChild(blocks);
             blocks.style.backgroundColor = 'brown';
             blocks.style.color = 'white';
             blocks.style.margin = '15px'; 
-            let percent = 0;
-            blocks.style.opacity = percent += 0.1;
+
+            let percent = i*10;
+            blocks.style.opacity = percent + '%';
         }
     }
-    function init() {
+    function circles() {
         let count = Number(document.getElementById("count").value);
-        const circles = document.getElementById("circles");
+        let circles = document.getElementById("circles");
         circles.innerHTML = "";
         if (!count && count === 0) return alert("Укажите число кругов");
         for (let i = count; i > 0; i--) {
@@ -90,7 +95,52 @@
             circles.append(circle);
         }
     }
-    document.getElementById("init").onclick = init;
+    document.getElementById("circle").onclick = circles;
+
+    function table() {
+        let multiplication = document.getElementById("multiplication");
+        for(let i = 13; i <= 33; i++) {
+          let element = document.createElement("p");
+          element.innerText = `${i} * 33 = ${i * 33}`;
+          multiplication.append(element);
+        }
+      }
+      document.getElementById("table").onclick = table;
+
+      function init() {
+        let table = document.getElementById("course");
+        let middleText = document.createElement("p");
+        let maxText = document.createElement("p");
+        let minText = document.createElement("p");
+
+        let prices = [477.25, 476.80, 470.25, 476.00, 484.20, 499.50, 509.10, 507.50, 507.55];
+        let dates = ["08.05.2023", "05.05.2023", "04.05.2023", "03.05.2023", "02.05.2023", "28.04.2023", "27.04.2023", "26.04.2023", "25.04.2023"];
+        let sum = 0, max, min;
+
+        for(let i = 0; i < prices.length; i++) {
+            const element = document.createElement("tr");
+            const date = document.createElement("td");
+            const price = document.createElement("td");
+            const razn = document.createElement("td");
+            date.innerText = dates[i];
+            price.innerText = prices[i];
+            razn.innerText = i != 0 ? Number(prices[i] - prices[i - 1]).toFixed(2) : "-";
+            element.append(date);
+            element.append(price);
+            element.append(razn);
+            table.append(element);
+            sum += prices[i];
+            max = max > prices[i] ? max : prices[i];
+            min = min < prices[i] ? min : prices[i];
+        }
+        middleText.innerText = `Средняя стоимость акции: ${Number(sum / prices.length).toFixed(2)}`;
+        maxText.innerText = `Максимальная стоимость акции: ${Number(max).toFixed(2)}`;
+        minText.innerText = `Максимальная стоимость акции: ${Number(min).toFixed(2)}`;
+        document.body.append(middleText);
+        document.body.append(maxText);
+        document.body.append(minText);
+    }
+        document.getElementById("init").onclick = init;
 </script>
 
 </head>
@@ -111,8 +161,14 @@
         <div id="transparent_blocks"></div>
 
         <input type="text" value="5" placeholder="Введите число кругов" id="count"/>
-        <button id="init" onclick="init()">Красное / Зелёное</button>
+        <button id="circle" onclick="circles()">Красное / Зелёное</button>
         <div id="circles"></div>
+
+        <button id="table" onclick="table()">Таблица умножения на 33</button>
+        <div style="background-color: rgba(207, 150, 141, 0.462); width: 150px; text-align: center;" id="multiplication"></div>
+
+        <button id="init" onclick="init()">Курс акций Газпром нефть</button>
+        <table id="course" border="1"></table>
     </main>
 
     <footer>
