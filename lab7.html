@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
 <style>
     #blocks {
-        width: 150px;
+        width: 200px;
     }
     #transparent_blocks {
         width: 150px;
@@ -35,6 +35,9 @@
         background-color: rgb(203, 176, 187);
         margin: 20px auto;
     }
+    #course {
+        margin: 40px;
+    }
 </style>
 
 <script>
@@ -42,7 +45,7 @@
         let blocks = document.getElementById('blocks');
         for(let i = 0; i < 10; i++) {
             let block = document.createElement('div');
-            block.innerHTML = 'Блок №' + (i+1);
+            block.innerHTML = 'Блок №' + (i+1) + ': ' + (2 * i**2);
             
             blocks.appendChild(block);
             block.style.backgroundColor = 'brown';
@@ -135,10 +138,11 @@
         }
         middleText.innerText = `Средняя стоимость акции: ${Number(sum / prices.length).toFixed(2)}`;
         maxText.innerText = `Максимальная стоимость акции: ${Number(max).toFixed(2)}`;
-        minText.innerText = `Максимальная стоимость акции: ${Number(min).toFixed(2)}`;
-        document.body.append(middleText);
-        document.body.append(maxText);
-        document.body.append(minText);
+        minText.innerText = `Минимальная стоимость акции: ${Number(min).toFixed(2)}`;
+
+        document.getElementById("courseData").append(middleText);
+        document.getElementById("courseData").append(maxText);
+        document.getElementById("courseData").append(minText);
     }
         document.getElementById("init").onclick = init;
 </script>
@@ -169,6 +173,7 @@
 
         <button id="init" onclick="init()">Курс акций Газпром нефть</button>
         <table id="course" border="1"></table>
+        <div style="padding: 30px; bottom: 10px;" id="courseData"></div>
     </main>
 
     <footer>
