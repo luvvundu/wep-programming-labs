@@ -8,10 +8,37 @@
     <link rel="stylesheet" href="main.css">
     <script src="lab8.js"></script>
 <style>
+    #current-date {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: rgb(171, 72, 119); 
+        font-size: 20px;
+    }
+    #current-date2 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: rgb(183, 21, 21); 
+        font-size: 20px;
+    }
+    #current-date3 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: rgb(58, 85, 151); 
+        font-size: 20px;
+    }
+    #current-date4 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: rgb(34, 80, 51); 
+        font-size: 20px;
+    }
+    #current-date5 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        color: rgb(124, 32, 32); 
+        font-size: 20px;
+    }
+    #date {
+        color:rgb(124, 32, 32);
+        font-size: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 </style>
-
-<script>
-</script>
 
 </head>
 
@@ -20,12 +47,23 @@
         НГТУ, ФБ, Лабораторная работа 8
     </header>
 
-<main style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgb(161, 102, 102); font-size: 20px;">
+<main>
     <div id="current-date"></div>
     <div id="current-date2"></div>
     <div id="current-date3"></div>
     <div id="current-date4"></div>
     <div id="current-date5"></div>
+
+    <div style="color: rgb(15, 15, 15); padding: 20px; font-size: 20px;">
+        <label>Дата рождения: <input type="date"></label>
+    </div>
+
+    <div id="date">
+        <button onclick="showDaysCount()">Показать число дней</button>
+    </div>
+    <div>
+        <button onclick="clear()">Очистить</button>
+    </div>
 </main>
 
 <footer>
