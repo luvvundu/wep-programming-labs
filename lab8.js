@@ -29,20 +29,17 @@ function showDaysCount() {
     let daysCount = (today - birthday)/1000/60/60/24;
     daysCount = Math.floor(daysCount);
 
-    date.innerHTML = 'Количество дней с даты рождения: ' + daysCount;
+    date = 'Количество дней с даты рождения: ' + daysCount;
+
+    document.getElementById('date').append(date);
 }
 
-function clear() {
-    let date = document.getElementById('date');
-
-    let today = new Date();
-    let inputDate = document.querySelector('input[type=date]');
-    let birthday = new Date(inputDate.value);
-    let daysCount = (today - birthday)/1000/60/60/24;
-    daysCount = Math.floor(daysCount);
-
-    date.innerHTML = 'Количество дней с даты рождения: ' + daysCount;
-}
+function clearThis() {
+    let date = document.getElementById("date");
+    let inputDate = document.querySelector("input[type=date]");
+    date.innerHTML = `<button onclick="showDaysCount()">Показать число дней</button>`;
+    inputDate.value = "";
+  }
 
 function showTIme() {
     let today = new Date();
